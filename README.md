@@ -1,1 +1,1 @@
-# python_training1.0
+# Training repository
