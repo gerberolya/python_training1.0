@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
 import unittest
+from contact import Contact
 
 def is_alert_present(wd):
     try:
@@ -29,22 +30,22 @@ class test_add_contact(unittest.TestCase):
     def Open_add_new_contact_page(self, wd):
         wd.find_element_by_link_text("add new").click()
 
-    def Fill_in_contacts_form(self, wd, firstname, lastname, company, address, email):
+    def Fill_in_contacts_form(self, wd, contact):
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(firstname)
+        wd.find_element_by_name("firstname").send_keys(contact.firstname)
         wd.find_element_by_name("lastname").click()
         wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(lastname)
+        wd.find_element_by_name("lastname").send_keys(contact.lastname)
         wd.find_element_by_name("company").click()
         wd.find_element_by_name("company").clear()
-        wd.find_element_by_name("company").send_keys(company)
+        wd.find_element_by_name("company").send_keys(contact.company)
         wd.find_element_by_name("address").click()
         wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys(address)
+        wd.find_element_by_name("address").send_keys(contact.address)
         wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys(email)
+        wd.find_element_by_name("email").send_keys(contact.email)
 
     def Save_the_contact(self, wd):
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
@@ -52,13 +53,13 @@ class test_add_contact(unittest.TestCase):
     def Logout(self, wd):
         wd.find_element_by_link_text("Logout").click()
 
-    def test_test_add_contact(self):
+    def test_add_contact(self):
         success = True
         wd = self.wd
         self.Open_home_page(wd)
         self.Login(wd, login="admin", password="secret")
         self.Open_add_new_contact_page(wd)
-        self.Fill_in_contacts_form(wd, firstname="Olga", lastname="Tester", company="test_company", address="test_address", email="test123@test123.com")
+        self.Fill_in_contacts_form(wd, Contact(firstname="Olga", lastname="Tester", company="test_company", address="test_address", email="test123@test123.com"))
         self.Save_the_contact(wd)
         self.Logout(wd)
 
