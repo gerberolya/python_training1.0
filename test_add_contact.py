@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
-from selenium.webdriver.common.action_chains import ActionChains
-import time, unittest
+import unittest
 
 def is_alert_present(wd):
     try:
@@ -12,21 +11,26 @@ def is_alert_present(wd):
 
 class test_add_contact(unittest.TestCase):
     def setUp(self):
-        self.wd = WebDriver()
+        self.wd = WebDriver(capabilities={"marionette": False})
         self.wd.implicitly_wait(60)
-    
-    def test_test_add_contact(self):
-        success = True
-        wd = self.wd
+
+    def Open_home_page(self, wd):
         wd.get("http://localhost/addressbook/edit.php")
-        wd.find_element_by_name("pass").click()
-        wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys("secret")
+
+    def Login(self, wd):
+
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys("admin")
+        wd.find_element_by_name("pass").click()
+        wd.find_element_by_name("pass").clear()
+        wd.find_element_by_name("pass").send_keys("secret")
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
+
+    def Open_add_new_contact_page(self, wd):
         wd.find_element_by_link_text("add new").click()
+
+    def Fill_in_contacts_form(self, wd):
         wd.find_element_by_name("firstname").click()
         wd.find_element_by_name("firstname").clear()
         wd.find_element_by_name("firstname").send_keys("Olga")
@@ -44,14 +48,23 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys("test123@test123.com")
+
+    def Save_the_contact(self, wd):
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+
+    def Logout(self, wd):
         wd.find_element_by_link_text("Logout").click()
-        wd.find_element_by_name("user").click()
-        wd.find_element_by_name("user").send_keys("\\undefined")
-        wd.find_element_by_name("pass").click()
-        wd.find_element_by_name("pass").send_keys("\\undefined")
-        self.assertTrue(success)
-    
+
+    def test_test_add_contact(self):
+        success = True
+        wd = self.wd
+        self.Open_home_page(wd)
+        self.Login(wd)
+        self.Open_add_new_contact_page(wd)
+        self.Fill_in_contacts_form(wd)
+        self.Save_the_contact(wd)
+        self.Logout(wd)
+
     def tearDown(self):
         self.wd.quit()
 
