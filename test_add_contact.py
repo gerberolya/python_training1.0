@@ -19,6 +19,7 @@ class test_add_contact(unittest.TestCase):
         wd.get("http://localhost/addressbook/edit.php")
 
     def Login(self, wd, login, password):
+        self.Open_home_page(wd)
         wd.find_element_by_name("user").click()
         wd.find_element_by_name("user").clear()
         wd.find_element_by_name("user").send_keys(login)
@@ -28,6 +29,7 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_xpath("//form[@id='LoginForm']/input[3]").click()
 
     def Open_add_new_contact_page(self, wd):
+        self.Open_add_new_contact_page(wd)
         wd.find_element_by_link_text("add new").click()
 
     def Fill_in_contacts_form(self, wd, contact):
@@ -46,21 +48,17 @@ class test_add_contact(unittest.TestCase):
         wd.find_element_by_name("email").click()
         wd.find_element_by_name("email").clear()
         wd.find_element_by_name("email").send_keys(contact.email)
-
-    def Save_the_contact(self, wd):
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
 
+#
     def Logout(self, wd):
         wd.find_element_by_link_text("Logout").click()
 
     def test_add_contact(self):
         success = True
         wd = self.wd
-        self.Open_home_page(wd)
         self.Login(wd, login="admin", password="secret")
-        self.Open_add_new_contact_page(wd)
         self.Fill_in_contacts_form(wd, Contact(firstname="Olga", lastname="Tester", company="test_company", address="test_address", email="test123@test123.com"))
-        self.Save_the_contact(wd)
         self.Logout(wd)
 
     def tearDown(self):
