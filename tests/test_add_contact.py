@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import pytest
 from model.contact import Contact
-from Fixture.application import Application
+from fixture.application import Application
 
 
 
@@ -16,7 +16,7 @@ def app(request):
 
 def test_add_contact(app):
     success = True
-    app.login(username="admin", password="secret")
+    app.session.login(username="admin", password="secret")
     app.fill_in_contacts_form(Contact(firstname="Olga", lastname="Tester", company="test_company", address="test_address", email="test123@test123.com"))
-    app.logout()
+    app.session.logout()
 
