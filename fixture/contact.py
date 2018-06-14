@@ -25,16 +25,24 @@ class ContactHelper:
         self.change_contact_form_data("address", contact.address)
         self.change_contact_form_data("email", contact.email)
 
+    def open_contacts_page(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("home").click()
+
     def delete_first_contact(self):
         wd = self.app.wd
+        self.open_contacts_page()
         # select first contact
         wd.find_element_by_name("selected[]").click()
         # deletion
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         wd.switch_to_alert().accept()
 
+
+
     def modify_first_contact(self, new_contact_data):
         wd = self.app.wd
+        self.open_contacts_page()
         # edit first contact
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
         # fill form with new data
