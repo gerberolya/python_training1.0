@@ -7,22 +7,23 @@ class ContactHelper:
     def fill_in_the_form(self, contact):
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
-        wd.find_element_by_name("firstname").click()
-        wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(contact.firstname)
-        wd.find_element_by_name("lastname").click()
-        wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(contact.lastname)
-        wd.find_element_by_name("company").click()
-        wd.find_element_by_name("company").clear()
-        wd.find_element_by_name("company").send_keys(contact.company)
-        wd.find_element_by_name("address").click()
-        wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys(contact.address)
-        wd.find_element_by_name("email").click()
-        wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys(contact.email)
+        self.fill_contact_form(contact)
         wd.find_element_by_xpath("//div[@id='content']/form/input[21]").click()
+
+    def change_contact_form_data(self, field_name, text):
+        wd = self.app.wd
+        if text is not None:
+            wd.find_element_by_name(field_name).click()
+            wd.find_element_by_name(field_name).clear()
+            wd.find_element_by_name(field_name).send_keys(text)
+
+    def fill_contact_form(self, contact):
+        wd = self.app.wd
+        self.change_contact_form_data("firstname", contact.firstname)
+        self.change_contact_form_data("lastname", contact.lastname)
+        self.change_contact_form_data("company", contact.company)
+        self.change_contact_form_data("address", contact.address)
+        self.change_contact_form_data("email", contact.email)
 
     def delete_first_contact(self):
         wd = self.app.wd
@@ -32,25 +33,13 @@ class ContactHelper:
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
         wd.switch_to_alert().accept()
 
-    def modify_first_contact(self, contact):
+    def modify_first_contact(self, new_contact_data):
         wd = self.app.wd
-        # select first contact
+        # edit first contact
         wd.find_element_by_xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img").click()
-        wd.find_element_by_name("firstname").click()
-        wd.find_element_by_name("firstname").clear()
-        wd.find_element_by_name("firstname").send_keys(contact.firstname)
-        wd.find_element_by_name("lastname").click()
-        wd.find_element_by_name("lastname").clear()
-        wd.find_element_by_name("lastname").send_keys(contact.lastname)
-        wd.find_element_by_name("company").click()
-        wd.find_element_by_name("company").clear()
-        wd.find_element_by_name("company").send_keys(contact.company)
-        wd.find_element_by_name("address").click()
-        wd.find_element_by_name("address").clear()
-        wd.find_element_by_name("address").send_keys(contact.address)
-        wd.find_element_by_name("email").click()
-        wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys(contact.email)
+        # fill form with new data
+        self.fill_contact_form(new_contact_data)
+        # submit modification
         wd.find_element_by_name("update").click()
 
 

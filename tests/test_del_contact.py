@@ -1,4 +1,4 @@
 
 
-def test_add_contact(app):
+def test_delete_first_contact(app):
     app.contact.delete_first_contact()
