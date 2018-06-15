@@ -50,4 +50,10 @@ class ContactHelper:
         # submit modification
         wd.find_element_by_name("update").click()
 
+    def count(self):
+        wd = self.app.wd
+        self.open_contacts_page()
+        return len(wd.find_elements_by_name("selected[]"))
+
+
 
