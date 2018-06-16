@@ -6,19 +6,19 @@ def test_add_group(app):
     old_groups = app.group.get_group_list()
     group_info = Group(name="test_name", header="test_header", footer="test_footer")
     app.group.create(group_info)
+    assert len(old_groups) + 1 == app.group.count()
     new_groups = app.group.get_group_list()
-    assert len(old_groups) + 1 == len(new_groups)
     old_groups.append(group_info)
     assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
 
 
-def test_add_empty_group(app):
-    old_groups = app.group.get_group_list()
-    group_info = Group(name="", header="", footer="")
-    app.group.create(group_info)
-    new_groups = app.group.get_group_list()
-    assert len(old_groups) + 1 == len(new_groups)
-    old_groups.append(group_info)
-    assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+#def test_add_empty_group(app):
+#    old_groups = app.group.get_group_list()
+#    group_info = Group(name="", header="", footer="")
+#    app.group.create(group_info)
+#    new_groups = app.group.get_group_list()
+#    assert len(old_groups) + 1 == len(new_groups)
+#    old_groups.append(group_info)
+#    assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
 
 
