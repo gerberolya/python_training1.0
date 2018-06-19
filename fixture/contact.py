@@ -47,11 +47,11 @@ class ContactHelper:
     def modify_first_contact(self):
         self.modify_contact_by_index(0)
 
-    def modify_contact_by_index(self, new_contact_data, index):
+    def modify_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
         self.open_contacts_page()
         # edit contact by index
-        wd.find_elements_by_xpath("//[@id='maintable']/tbody/tr[@name='entry']//img")[index].click()
+        wd.find_elements_by_css_selector("img[title=Edit]")[index].click()
         # fill form with new data
         self.fill_contact_form(new_contact_data)
         # submit modification
