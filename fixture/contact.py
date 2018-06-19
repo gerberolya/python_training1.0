@@ -44,9 +44,6 @@ class ContactHelper:
         wd.switch_to_alert().accept()
         self.contact_cache = None
 
-    def modify_first_contact(self):
-        self.modify_contact_by_index(0)
-
     def modify_contact_by_index(self, index, new_contact_data):
         wd = self.app.wd
         self.open_contacts_page()
@@ -57,6 +54,9 @@ class ContactHelper:
         # submit modification
         wd.find_element_by_name("update").click()
         self.contact_cache = None
+
+    def modify_first_contact(self):
+        self.modify_contact_by_index(0)
 
     def count(self):
         wd = self.app.wd
@@ -76,4 +76,30 @@ class ContactHelper:
                 id = element.find_element_by_name("selected[]").get_attribute("value")
                 self.contact_cache.append(Contact(lastname=surname, firstname=name, id=id))
         return list(self.contact_cache)
+
+    def open_contact_to_edit_by_index(self, index):
+        wd = self.app.wd
+        self.open_contacts_page()
+        wd.find_elements_by_css_selector("img[title=Edit]")[index].click()
+
+    def open_contact_view_by_index(self, index):
+        wd = self.app.wd
+        self.app.open_home_page()
+        row = wd.find_elements_by_name("entry")[index]
+        cell = row.find_elements_by_tag_name("td")[6]
+        cell.find_element_by_tag_name("a").click()
+
+    def get_contact_info_from_edit_page(self, index):
+        wd = self.app.wd
+        self.open_contact_to_edit_by_index(index)
+        firstname = wd.find_element_by_name("firstname").get_attribute("value")
+        lastname = wd.find_element_by_name("lastname").get_attribute("value")
+        id = wd.find_element_by_name("id").get_attribute("value")
+        homephone = wd.find_element_by_name("home").get_attribute("value")
+        workphone = wd.find_element_by_name("work").get_attribute("value")
+        mobilephone = wd.find_element_by_name("mobile").get_attribute("value")
+        secondaryphone = wd.find_element_by_name("phone2").get_attribute("value")
+        return Contact(firstname=firstname, lastname=lastname, id=id,
+                       homephone=homephone, workphone=workphone,
+                       mobilephone=mobilephone, secondaryphone=secondaryphone)
 
