@@ -1,7 +1,4 @@
 from model.contact import Contact
-import string
-import random
-
 
 
 testdata = [
