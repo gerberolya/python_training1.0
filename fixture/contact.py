@@ -59,7 +59,6 @@ class ContactHelper:
     def delete_contact_by_id(self, id):
         wd = self.app.wd
         self.open_contacts_page()
-        # select first contact
         self.select_contact_by_id(id)
         # deletion
         wd.find_element_by_xpath("//div[@id='content']/form[2]/div[2]/input").click()
@@ -156,3 +155,13 @@ class ContactHelper:
         return Contact(homephone=homephone, mobilephone=mobilephone,
                        workphone=workphone, secondaryphone=secondaryphone)
 
+    def select_group_from_dropdown_menu(self, group_id):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//select[@name='to_group']/option[@value='%s']" % group_id).click()
+
+    def move_contact_to_group(self, contact_id, group_id):
+        wd = self.app.wd
+        self.app.open_home_page()
+        self.select_contact_by_id(contact_id)
+        self.select_group_from_dropdown_menu(group_id)
+        wd.find_element_by_name("add").click()

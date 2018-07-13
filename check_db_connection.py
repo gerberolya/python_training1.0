@@ -1,11 +1,12 @@
 __author__ = 'tester'
 
 from fixture.orm import ORMFixture
+from model.group import Group
 
-db = ORMFixture(host="127.0.0.1", database="addressbook", user="root", password="")
+check = ORMFixture(host="127.0.0.1", database="addressbook", user="root", password="")
 
 try:
-    l = db.get_contact_list()
+    l = check.get_contacts_not_in_group(Group(id="178"))
     for item in l:
         print(item)
     print(len(l))
