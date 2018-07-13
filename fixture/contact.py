@@ -26,7 +26,13 @@ class ContactHelper:
         self.change_contact_form_data("lastname", contact.lastname)
         self.change_contact_form_data("company", contact.company)
         self.change_contact_form_data("address", contact.address)
+        self.change_contact_form_data("home", contact.homephone)
+        self.change_contact_form_data("mobile", contact.mobilephone)
+        self.change_contact_form_data("work", contact.workphone)
+        self.change_contact_form_data("phone2", contact.secondaryphone)
         self.change_contact_form_data("email", contact.email)
+        self.change_contact_form_data("email2", contact.email2)
+        self.change_contact_form_data("email3", contact.email3)
 
     def open_contacts_page(self):
         wd = self.app.wd

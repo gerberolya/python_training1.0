@@ -20,13 +20,22 @@ class ORMFixture:
         id = PrimaryKey(int, column="id")
         firstname = Optional(str, column="firstname")
         lastname = Optional(str, column="lastname")
-        deprecated = Optional(datetime, column="deprecated")
+        company = Optional(str, column="company")
+        address = Optional(str, column="address")
+        homephone = Optional(str, column="home")
+        mobilephone = Optional(str, column="mobile")
+        workphone = Optional(str, column="work")
+        secondaryphone = Optional(str, column="phone2")
+        email = Optional(str, column="email")
+        email2 = Optional(str, column="email2")
+        email3 = Optional(str, column="email3")
+        deprecated = Optional(str, column="deprecated")
 
     def __init__(self, host, database, user, password):
-        conv = encoders
-        conv.update(decoders)
-        conv[datetime] = convert_mysql_timestamp
-        self.db.bind('mysql', host=host, database=database, user=user, password=password, conv=conv)
+        #conv = encoders
+        #conv.update(decoders)
+        #conv[datetime] = convert_mysql_timestamp
+        self.db.bind('mysql', host=host, database=database, user=user, password=password, conv=decoders)
         self.db.generate_mapping()
 
     def convert_groups_to_model(self, groups):
@@ -41,7 +50,10 @@ class ORMFixture:
 
     def convert_contacts_to_model(self, contacts):
         def convert(contact):
-            return Contact(id=str(contact.id), firstname=contact.firstname, lastname=contact.lastname)
+            return Contact(id=str(contact.id), firstname=contact.firstname, lastname=contact.lastname, company=contact.company,
+                           address=contact.address, homephone=contact.home, mobilephone=contact.mobile,
+                           workphone=contact.work, secondaryphone=contact.phone2,
+                           email=contact.email, email2=contact.email2, email3=contact.email3)
         return list(map(convert, contacts))
 
     @db_session
