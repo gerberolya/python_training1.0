@@ -2,7 +2,7 @@ from pony.orm import *
 from datetime import datetime
 from model.group import Group
 from model.contact import Contact
-from pymysql.converters import decoders
+from pymysql.converters import encoders, decoders, convert_mysql_timestamp
 
 
 class ORMFixture:
@@ -15,7 +15,6 @@ class ORMFixture:
         header = Optional(str, column="group_header")
         footer = Optional(str, column="group_footer")
 
-
     class ORMContact(db.Entity):
         _table_ = "addressbook"
         id = PrimaryKey(int, column="id")
@@ -24,9 +23,11 @@ class ORMFixture:
         deprecated = Optional(datetime, column="deprecated")
 
     def __init__(self, host, database, user, password):
-        self.db.bind('mysql', host="127.0.0.1", database="addressbook", user="root", password="", conv=decoders)
+        conv = encoders
+        conv.update(decoders)
+        conv[datetime] = convert_mysql_timestamp
+        self.db.bind('mysql', host=host, database=database, user=user, password=password, conv=conv)
         self.db.generate_mapping()
-
 
     def convert_groups_to_model(self, groups):
         def convert(group):
