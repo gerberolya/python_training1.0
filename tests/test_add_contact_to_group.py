@@ -17,4 +17,4 @@ def test_add_contact_to_group(app, db):
     group_for_moving_in = random.choice(groups)
     app.contact.move_contact_to_group(contact_id=contact_to_move.id, group_id=group_for_moving_in.id)
     contacts_in_group = db_orm.get_contacts_in_group(Group(id=group_for_moving_in.id))
-    assert Contact(id=contact_to_move.id) in contacts_in_group
+    assert contact_to_move in contacts_in_group
