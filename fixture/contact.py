@@ -165,3 +165,11 @@ class ContactHelper:
         self.select_contact_by_id(contact_id)
         self.select_group_from_dropdown_menu(group_id)
         wd.find_element_by_name("add").click()
+
+    def del_contact_from_group(self, contact_id, group_id):
+        wd =self.app.wd
+        self.app.open_home_page()
+        wd.find_element_by_xpath("//select[@name='group']/option[@value='%s']" % group_id).click()
+        self.select_contact_by_id(contact_id)
+        wd.find_element_by_name("remove").click()
+
