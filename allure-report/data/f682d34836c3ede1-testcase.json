@@ -1,0 +1,95 @@
+{
+  "uid" : "f682d34836c3ede1",
+  "name" : "test_delete_some_group",
+  "title" : "Test delete some group",
+  "time" : {
+    "start" : 1532637401719,
+    "stop" : 1532637408761,
+    "duration" : 7042
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 3
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "testId" : null,
+  "suite" : {
+    "uid" : "223b4a23c063838c",
+    "name" : "tests.test_del_group",
+    "title" : "Test del group"
+  },
+  "steps" : [ {
+    "name" : "Given a non-empty group list",
+    "title" : "Given a non-empty group list",
+    "time" : {
+      "start" : 1532637407697,
+      "stop" : 1532637407700,
+      "duration" : 3
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "When I delete random group 48, namejk f, header LuNK3, footer2 ki3z from the list",
+    "title" : "When I delete random group 48, namejk f, header LuNK3, footer2 ki3z from the list",
+    "time" : {
+      "start" : 1532637407700,
+      "stop" : 1532637408697,
+      "duration" : 997
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "Then the new group list is equal to the old list without deleted group",
+    "title" : "Then the new group list is equal to the old list without deleted group",
+    "time" : {
+      "start" : 1532637408697,
+      "stop" : 1532637408761,
+      "duration" : 64
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "labels" : [ {
+    "name" : "suite-name",
+    "value" : "tests.test_del_group"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "thread",
+    "value" : "12616-MainThread"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-2ACCULJ"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  } ],
+  "parameters" : [ ]
+}

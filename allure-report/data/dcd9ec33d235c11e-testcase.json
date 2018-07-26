@@ -1,0 +1,95 @@
+{
+  "uid" : "dcd9ec33d235c11e",
+  "name" : "test_add_group[None, namejk f, header LuNK3, footer2 ki3z]",
+  "title" : "Test add group [None, namejk f, header LuNK3, footer2 ki3z]",
+  "time" : {
+    "start" : 1532636874695,
+    "stop" : 1532636876457,
+    "duration" : 1762
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 3
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "testId" : null,
+  "suite" : {
+    "uid" : "4a0bc626af67927e",
+    "name" : "tests.test_add_group",
+    "title" : "Test add group"
+  },
+  "steps" : [ {
+    "name" : "Given a group list",
+    "title" : "Given a group list",
+    "time" : {
+      "start" : 1532636874843,
+      "stop" : 1532636874845,
+      "duration" : 2
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "When I add the group None, namejk f, header LuNK3, footer2 ki3z to the list",
+    "title" : "When I add the group None, namejk f, header LuNK3, footer2 ki3z to the list",
+    "time" : {
+      "start" : 1532636874845,
+      "stop" : 1532636876455,
+      "duration" : 1610
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "Then the new group list is equal to the old list with added group",
+    "title" : "Then the new group list is equal to the old list with added group",
+    "time" : {
+      "start" : 1532636876455,
+      "stop" : 1532636876456,
+      "duration" : 1
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "labels" : [ {
+    "name" : "thread",
+    "value" : "11860-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "suite-name",
+    "value" : "tests.test_add_group"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-2ACCULJ"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  } ],
+  "parameters" : [ ]
+}

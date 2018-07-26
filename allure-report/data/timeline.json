@@ -1,0 +1,75 @@
+{
+  "hosts" : [ {
+    "title" : "DESKTOP-2ACCULJ",
+    "threads" : [ {
+      "title" : "3760-MainThread",
+      "testCases" : [ {
+        "uid" : "102ba0fd6a9c9e0d",
+        "name" : "test_add_group[None, , , ]",
+        "title" : "Test add group [None, , , ]",
+        "time" : {
+          "start" : 1532637806919,
+          "stop" : 1532637814466,
+          "duration" : 7547
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "bbf42a073215c199",
+        "name" : "test_add_group[None, nameZtlaXYlIK, header7Cx, footerc]",
+        "title" : "Test add group [None, nameZtlaXYlIK, header7Cx, footerc]",
+        "time" : {
+          "start" : 1532637814468,
+          "stop" : 1532637816026,
+          "duration" : 1558
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "b08e8c3757260647",
+        "name" : "test_add_group[None, namejk f, header LuNK3, footer2 ki3z]",
+        "title" : "Test add group [None, namejk f, header LuNK3, footer2 ki3z]",
+        "time" : {
+          "start" : 1532637816028,
+          "stop" : 1532637817481,
+          "duration" : 1453
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "3a9f924f6a4cb4ae",
+        "name" : "test_add_group[None, name Eezt6, header7 0Jcwgcu, footerE]",
+        "title" : "Test add group [None, name Eezt6, header7 0Jcwgcu, footerE]",
+        "time" : {
+          "start" : 1532637817482,
+          "stop" : 1532637819160,
+          "duration" : 1678
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "9d156aa14b29e3b4",
+        "name" : "test_add_group[None, name525h jo, headeruh2mr, footer qp1S6]",
+        "title" : "Test add group [None, name525h jo, headeruh2mr, footer qp1S6]",
+        "time" : {
+          "start" : 1532637819163,
+          "stop" : 1532637820865,
+          "duration" : 1702
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      }, {
+        "uid" : "c496f9dfdbb54d70",
+        "name" : "test_add_group[None, nameCV, headerg0  smShF, footer JB ]",
+        "title" : "Test add group [None, nameCV, headerg0  smShF, footer JB ]",
+        "time" : {
+          "start" : 1532637820869,
+          "stop" : 1532637822367,
+          "duration" : 1498
+        },
+        "severity" : "NORMAL",
+        "status" : "PASSED"
+      } ]
+    } ]
+  } ]
+}

@@ -24,4 +24,4 @@ Scenario: Modify group
   Given a non-empty group list
   Given a random group from the list
   When I modify random group from the list
-  Then the new group list is equal to the old list without deleted group
+  Then the new group list is equal to the old list with modifyed group

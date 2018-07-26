@@ -1,0 +1,95 @@
+{
+  "uid" : "d49281a3d6d96f35",
+  "name" : "test_modify_group_name",
+  "title" : "Test modify group name",
+  "time" : {
+    "start" : 1532637710135,
+    "stop" : 1532637717372,
+    "duration" : 7237
+  },
+  "summary" : {
+    "attachments" : 0,
+    "steps" : 3
+  },
+  "failure" : null,
+  "description" : null,
+  "severity" : "NORMAL",
+  "status" : "PASSED",
+  "testId" : null,
+  "suite" : {
+    "uid" : "dbf744c79208195d",
+    "name" : "tests.test_modify_group",
+    "title" : "Test modify group"
+  },
+  "steps" : [ {
+    "name" : "Given a non-empty group list",
+    "title" : "Given a non-empty group list",
+    "time" : {
+      "start" : 1532637715778,
+      "stop" : 1532637715781,
+      "duration" : 3
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "When I modify random group 41, nameZtlaXYlIK, header7Cx, footerc from the list",
+    "title" : "When I modify random group 41, nameZtlaXYlIK, header7Cx, footerc from the list",
+    "time" : {
+      "start" : 1532637715781,
+      "stop" : 1532637717276,
+      "duration" : 1495
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  }, {
+    "name" : "Then the new group list is equal to the old list with modifyed group",
+    "title" : "Then the new group list is equal to the old list with modifyed group",
+    "time" : {
+      "start" : 1532637717276,
+      "stop" : 1532637717372,
+      "duration" : 96
+    },
+    "summary" : {
+      "attachments" : 0,
+      "steps" : 0
+    },
+    "status" : "PASSED",
+    "attachments" : [ ],
+    "steps" : [ ]
+  } ],
+  "attachments" : [ ],
+  "issues" : [ ],
+  "labels" : [ {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "thread",
+    "value" : "5576-MainThread"
+  }, {
+    "name" : "suite-title",
+    "value" : null
+  }, {
+    "name" : "severity",
+    "value" : "normal"
+  }, {
+    "name" : "suite-name",
+    "value" : "tests.test_modify_group"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-2ACCULJ"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  } ],
+  "parameters" : [ ]
+}
