@@ -62,7 +62,7 @@ def modify_random_contact(app, random_contact, new_info):
     app.contact.modify_contact_by_id(random_contact.id, new_info)
 
 
-@then('the new contact list is equal to the old list without deleted contact')
+@then('the new contact list is equal to the old list with modifiyed contact')
 def verify_contact_modify(db, non_empty_contact_list, random_contact, new_info):
     old_contacts = non_empty_contact_list
     new_info.id = random_contact.id
