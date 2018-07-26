@@ -44,10 +44,31 @@ def delete_contact(app, random_contact):
 
 
 @then('the new contact list is equal to the old list without deleted contact')
-def verify_contact_deleted(db, non_empty_contact_list, random_contact, app, check_ui):
+def verify_contact_deleted(db, non_empty_contact_list, random_contact):
     old_contacts = non_empty_contact_list
     new_contacts = db.get_contact_list()
+    assert len(old_contacts)-1 == len(new_contacts)
     old_contacts.remove(random_contact)
+    assert old_contacts == new_contacts
+   # assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+
+
+@given('a new contact info with <firstname>, <lastname> and <company>')
+def new_info(firstname, lastname, company):
+    return Contact(firstname=firstname, lastname=lastname, company=company)
+
+@when('I modify random contact from the list')
+def modify_random_contact(app, random_contact, new_info):
+    app.contact.modify_contact_by_id(random_contact.id, new_info)
+
+
+@then('the new contact list is equal to the old list without deleted contact')
+def verify_contact_modify(db, non_empty_contact_list, random_contact, new_info):
+    old_contacts = non_empty_contact_list
+    new_info.id == random_contact.id
+    old_contacts.remove(random_contact)
+    new_contacts = db.get_contact_list()
+    old_contacts.append(new_info)
     assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
-    if check_ui:
-        assert sorted(new_contacts, key=Contact.id_or_max) == sorted(app.contact.get_contact_list(), key=Contact.id_or_max)
+
+

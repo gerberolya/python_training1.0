@@ -23,5 +23,11 @@ Scenario: Delete contact
 Scenario: Modify contact
   Given a non-empty contact list
   Given a random contact from the list
+  Given a new contact info with <firstname>, <lastname> and <company>
   When I modify random contact from the list
   Then the new contact list is equal to the old list without deleted contact
+
+  Examples:
+
+  | firstname  | lastname  | company  |
+  | firstname3 | lastname3 | company3 |
